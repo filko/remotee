@@ -4,6 +4,7 @@
 #include <paludis/version_spec.hh>
 #include <paludis/metadata_key.hh>
 #include <paludis/name.hh>
+#include <paludis/slot.hh>
 #include <paludis/util/stringify.hh>
 #include <vector>
 
@@ -99,7 +100,7 @@ void TxtPrinter::print(std::ostream & os, const IDRemoteMap & i_r_m)
          i != i_end; ++i)
     {
         Row & row(columns.next());
-        row << i->first->name() << ':' << i->first->slot_key()->parse_value() << Row::tab;
+        row << i->first->name() << ':' << i->first->slot_key()->parse_value().raw_value() << Row::tab;
         row << "::" << i->first->repository_name() << Row::tab << i->first->version() << Row::tab;
  
         for (auto r(i->second.begin()), r_end(i->second.end());
