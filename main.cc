@@ -43,9 +43,9 @@ int main(int arc, char * arv[])
 
             std::shared_ptr<const PackageIDSequence> ids(
                 (*env)[selection::BestVersionOnly(
-                        generator::Matches(spec, make_null_shared_ptr(), { }) |
+                        generator::Matches(spec, nullptr, { }) |
                         filter::Matches(parse_user_package_dep_spec("*/*[<scm]", env.get(), {updso_allow_wildcards}),
-                                          make_null_shared_ptr(), { }))]);
+                                          nullptr, { }))]);
 
             for (auto i(ids->begin()), i_end(ids->end());
                  i != i_end; ++i)

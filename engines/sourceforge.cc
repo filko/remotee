@@ -5,7 +5,6 @@
 #include <paludis/name.hh>
 #include <paludis/package_id.hh>
 #include <paludis/util/log.hh>
-#include <paludis/util/make_null_shared_ptr.hh>
 #include <paludis/util/options.hh>
 #include <paludis/util/stringify.hh>
 #include <paludis/version_spec.hh>
@@ -78,5 +77,5 @@ std::shared_ptr<const IDInfo> Sourceforge::process(const std::shared_ptr<const P
             Log::get_instance()->message("sourceforge.json", ll_qa, lc_context) << e.message();
         }
 
-    return make_null_shared_ptr();
+    return nullptr;
 }

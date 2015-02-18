@@ -1,7 +1,6 @@
 #include "cpan.hh"
 
 #include <paludis/util/log.hh>
-#include <paludis/util/make_null_shared_ptr.hh>
 #include <paludis/util/options.hh>
 #include <sstream>
 #include <stdexcept>
@@ -43,5 +42,5 @@ std::shared_ptr<const IDInfo> Cpan::process(const std::shared_ptr<const paludis:
             Log::get_instance()->message("cpan.json", ll_qa, lc_context) << e.message();
         }
 
-    return paludis::make_null_shared_ptr();
+    return nullptr;
 }

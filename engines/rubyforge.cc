@@ -1,7 +1,6 @@
 #include "rubyforge.hh"
 
 #include <paludis/util/log.hh>
-#include <paludis/util/make_null_shared_ptr.hh>
 #include <paludis/util/options.hh>
 #include <sstream>
 #include <stdexcept>
@@ -44,5 +43,5 @@ std::shared_ptr<const IDInfo> Rubyforge::process(const std::shared_ptr<const pal
             Log::get_instance()->message("rubyforge.json", ll_qa, lc_context) << e.message();
         }
 
-    return paludis::make_null_shared_ptr();
+    return nullptr;
 }

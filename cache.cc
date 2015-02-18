@@ -2,7 +2,6 @@
 
 #include <paludis/util/fs_path.hh>
 #include <paludis/util/fs_stat.hh>
-#include <paludis/util/make_null_shared_ptr.hh>
 #include <paludis/util/options.hh>
 #include <paludis/util/pimp-impl.hh>
 #include <paludis/util/safe_ifstream.hh>
@@ -69,7 +68,7 @@ std::shared_ptr<const std::string> Cache::get(const std::string & module, const 
         else
         {
             entry_path.unlink();
-            return make_null_shared_ptr();
+            return nullptr;
         }
     }
     else

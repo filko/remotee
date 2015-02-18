@@ -3,7 +3,7 @@
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <paludis/environment.hh>
-#include <paludis/util/accept_visitor.hh>
+#include <paludis/util/visitor.hh>
 #include <paludis/util/indirect_iterator-impl.hh>
 #include <vector>
 

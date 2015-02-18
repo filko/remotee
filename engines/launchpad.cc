@@ -1,7 +1,6 @@
 #include "launchpad.hh"
 
 #include <paludis/util/log.hh>
-#include <paludis/util/make_null_shared_ptr.hh>
 #include <paludis/util/options.hh>
 #include <sstream>
 #include <stdexcept>
@@ -53,5 +52,5 @@ std::shared_ptr<const IDInfo> Launchpad::process(const std::shared_ptr<const pal
         }
 
     Log::get_instance()->message("launchpad.no_version", ll_qa, lc_context) << "No version found.";
-    return make_null_shared_ptr();
+    return nullptr;
 }

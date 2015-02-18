@@ -3,7 +3,6 @@
 #include <iostream>
 #include <map>
 #include <paludis/util/log.hh>
-#include <paludis/util/make_null_shared_ptr.hh>
 #include <paludis/util/pimp-impl.hh>
 #include <string>
 
@@ -50,5 +49,5 @@ std::shared_ptr<Engine> EngineFactory::get(const std::string & name)
 
     Log::get_instance()->message("engine_factory.not_supported", ll_warning, lc_no_context)
         << "Engine " << name << " not supported.";
-    return imp_->engines_[name] = make_null_shared_ptr();
+    return imp_->engines_[name] = nullptr;
 }

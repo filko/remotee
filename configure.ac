@@ -8,7 +8,7 @@ AC_PROG_RANLIB
 
 AC_LANG([C++])
 
-REMOTEE_CXXFLAGS="-Wall -Wextra -pedantic"
+REMOTEE_CXXFLAGS="-Wall -Wextra -pedantic -std=c++11"
 
 PKG_PROG_PKG_CONFIG(0.25)
 
