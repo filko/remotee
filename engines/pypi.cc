@@ -19,7 +19,8 @@ std::shared_ptr<const IDInfo> Pypi::process(const std::shared_ptr<const paludis:
     paludis::Context context("When processing " + stringify(*id) + " with pypi index '" + index + "'");
 
     auto content(Cache::get_instance()->get("pypi", index,
-                                            "http://pypi.python.org/pypi/" + index + "/json"));
+                                            "https://pypi.python.org/pypi/" + index + "/json"));
+
     if (content)
         try
         {
