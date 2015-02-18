@@ -2,6 +2,7 @@
 
 #include <paludis/util/fs_path.hh>
 #include <paludis/util/fs_stat.hh>
+#include <paludis/util/log.hh>
 #include <paludis/util/options.hh>
 #include <paludis/util/pimp-impl.hh>
 #include <paludis/util/safe_ifstream.hh>
@@ -57,13 +58,21 @@ std::shared_ptr<const std::string> Cache::get(const std::string & module, const 
             // && 200 == imp_->curl_.http_code()
             )
         {
-            SafeOFStream os(entry_path, -1, true);
-            os << imp_->curl_.content();
+            try {
+                SafeOFStream os(entry_path, -1, true);
+                os << imp_->curl_.content();
 
-            if (imp_->observer_)
-                imp_->observer_();
+                if (imp_->observer_)
+                    imp_->observer_();
 
-            return std::make_shared<std::string>(imp_->curl_.content());
+                return std::make_shared<std::string>(imp_->curl_.content());
+            }
+            catch (const SafeOFStreamError & e)
+            {
+                using namespace paludis;
+                Log::get_instance()->message("cache.cant_write", ll_qa, lc_context) << e.message();
+                return nullptr;
+            }
         }
         else
         {
